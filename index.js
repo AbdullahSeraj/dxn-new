@@ -22,6 +22,7 @@ app.use("/categories", require("./routes/categoryRoutes"));
 app.use("/cart", require("./routes/cartRoutes"));
 app.use("/saved", require("./routes/savedRoutes"));
 app.use("/settings", require("./routes/setttingsRoutes"));
+app.use("/orders", require("./routes/orderRoutes"));
 
 mongoose.connection.once("open", () => {
   console.log("Connected with mongodb");

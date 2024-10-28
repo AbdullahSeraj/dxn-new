@@ -28,7 +28,8 @@ const getProfile = async (req, res) => {
 
 const updateProfile = async (req, res) => {
   const userId = req.user;
-  const { username, avatar, password, gender, language, country } = req.body;
+  const { username, avatar, password, gender, language, country, address } =
+    req.body;
 
   if (!username && !avatar && !password && !gender && !language && !country) {
     return res.status(400).json({ message: "No changes provided" });
@@ -47,6 +48,7 @@ const updateProfile = async (req, res) => {
       gender: gender,
       language: language,
       country: country,
+      address: address,
     });
 
     if (!user) {

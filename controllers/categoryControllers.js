@@ -34,6 +34,16 @@ const getCategories = async (req, res) => {
   }
 };
 
+const getCategory = async (req, res) => {
+  const { id } = req.params;
+
+  const category = await Category.findById(id);
+  if (!category) {
+    return res.status(400).json({ message: "No category for this id" });
+  }
+  res.json({ data: category });
+};
+
 const addCategory = async (req, res) => {
   const { title, name } = req.body;
 
@@ -91,4 +101,4 @@ const removeCategory = async (req, res) => {
   }
 };
 
-module.exports = { getCategories, addCategory, removeCategory };
+module.exports = { getCategories, addCategory, removeCategory, getCategory };
